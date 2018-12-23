@@ -20,8 +20,6 @@ public class LoginPage extends BaseClass{
 	@FindBy(id="btnLogin")
 	public WebElement btnLogin;
 	
-	@FindBy(id="spanMessage")
-	public WebElement errorMessage;
 	
 	public LoginPage() {
 		PageFactory.initElements(driver, this);

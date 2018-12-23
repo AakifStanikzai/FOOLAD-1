@@ -18,7 +18,7 @@ public class LoginPageSteps {
 		Assert.assertTrue(login.logo.isDisplayed());
 	}
 
-	@When("^I enter \"([^\"]*)\" and \"([^\"]*)\"$")
+	@When("^I enter \"(.*)\" and \"(.*)\"$")
 	public void i_enter_and(String value1, String value2) {
 		CommonMethods.enterValue(login.username, value1);
 		CommonMethods.enterValue(login.password, value2);

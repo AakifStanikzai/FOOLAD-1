@@ -1,7 +1,7 @@
 package com.syntax.utils;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethods extends BaseClass {
@@ -20,4 +20,10 @@ public class CommonMethods extends BaseClass {
 		WebElement elm = waiting(element);
 		elm.click();
 	}
+
+	public static void selectValue(WebElement element, String ByVisisbleText) {
+		Select select = new Select(element);
+		select.selectByVisibleText(ByVisisbleText);
+	}
+	
 }

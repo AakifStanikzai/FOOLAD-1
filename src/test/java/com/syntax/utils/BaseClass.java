@@ -14,6 +14,17 @@ public class BaseClass {
 
 	public static Properties prop;
 	public static WebDriver driver;
+	
+	public static void initProperties(String filePath) {
+
+		prop = new Properties();
+		try {
+			FileInputStream fis = new FileInputStream(filePath);
+			prop.load(fis);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void setUp() {
 		initProperties(Constants.filePath);
@@ -21,16 +32,16 @@ public class BaseClass {
 
 		if (browserName.equalsIgnoreCase("chrome")) {
 			if (Constants.osName.contains("Mac")) {
-				System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
+				System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\Drivers\\chromedriver");
 			} else if (Constants.osName.contains("Windows")) {
-				System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\Drivers\\chromedriver.exe");
 			}
 			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			if (Constants.osName.contains("Mac")) {
-				System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver");
+				System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\Drivers\\geckodriver");
 			} else if (Constants.osName.contains("Windows")) {
-				System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\Drivers\\geckodriver.exe");
 			}
 			driver = new FirefoxDriver();
 		}
@@ -48,14 +59,5 @@ public class BaseClass {
 		driver.quit();
 	}
 
-	public static void initProperties(String filePath) {
-
-		prop = new Properties();
-		try {
-			FileInputStream fis = new FileInputStream(filePath);
-			prop.load(fis);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 }
